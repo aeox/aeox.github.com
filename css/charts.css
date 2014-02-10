@@ -1,0 +1,229 @@
+/* #Charts
+================================================== */
+
+.pie-chart {
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	background-color: #d64d4d;
+	/*overflow: hidden;*/
+	left: 50px;
+	top: 300px;
+	-webkit-transform-origin: left center;
+	transform-origin: left center;
+	
+}
+.pie-chart.big {
+		width:200px;
+		height:200px;
+		-moz-transform-origin:center center;
+		-ms-transform-origin:center center;
+		-o-transform-origin:center center;
+		-webkit-transform-origin:center center;
+		transform-origin:center center;
+	}
+.pie-chart.big:AFTER {
+	content:"";
+	position:absolute;
+	width:100px;
+	height:200px;
+	left:100px;
+	border-radius:0 100px 100px 0;
+}
+.pie-chart.big:BEFORE {
+	left:0px;
+}
+.pie-chart:BEFORE {
+	content: "";
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	left: -100px;
+	border-radius: 100px 0 0 100px;
+	-webkit-transform-origin: right center;
+	transform-origin: right center;
+	background-color: #88a0c1;
+}
+.pie-chart[data-percentage="25"] {
+	-webkit-transform: rotate(260deg);
+	transform: rotate(30deg);
+}
+
+.pie-chart[data-percentage="25"]:BEFORE {
+	-webkit-transform: rotate(260deg);
+	transform: rotate(30deg);
+}
+
+
+
+
+
+
+.pie-chart-2 {
+	position: relative;
+	width: 100px;
+	height: 200px;
+	background-color: #d08a8a;
+	/*border-radius: 50%;*/
+	/*overflow: hidden;*/
+	left: 420px;
+	top: 300px;
+	-webkit-transform-origin: left center;
+	transform-origin: left center;
+}
+.pie-chart-2:BEFORE {
+	content: "";
+	position: absolute;
+	width: 200%;
+	height: 100%;
+	left: -100%;
+	/*left: -100px;*/
+	background-color: #79bfd0;
+	border-radius: 100% 0 0 100%;
+	-webkit-transform-origin: 50% center;
+	transform-origin: 50% center;
+}
+
+
+
+.pie-chart-2[data-percentage="25"] {
+	-webkit-transform: rotate(285deg);
+	transform: rotate(30deg);
+}
+.pie-chart-2[data-percentage="25"]:BEFORE {
+	-webkit-transform: rotate(285deg);
+	transform: rotate(30deg);
+}
+
+
+
+
+
+/* HTML + CSS-only fluid pie chart.
+	Im no expert so feel free to modify, expand or play with it.
+	If you do I'd love to see your results. :)
+*/
+
+/* Chart object that defines the dimensions and contains
+	the other pieces*/
+.pie-chart-3 {
+	position: relative;
+	width: 100px;
+	height: 200px;
+	/*background-color: #d08a8a;*/
+	background: rgba(121, 191, 208, .4);
+	/*border-radius: 50%;*/
+	/*overflow: hidden;*/
+	left: 700px;
+	top: 100px;
+	-webkit-transform-origin: left center;
+	transform-origin: left center;
+}
+
+/* "Mask" of the chart that makes it posible to make the whole
+	thing fluid instead of fixed dimensions */
+.pie-mask-test {
+	position: absolute;
+	/*overflow: hidden;*/
+	width: 100%;
+	height: 100%;
+	left: -100%;
+	-webkit-transform-origin: right center;
+	transform-origin: right center;
+	background: rgba(234, 197, 99, .6);
+}
+
+/* The chart / Half of a big (more thant 50%) chart */
+.pie-mask-test-chart {
+	content: "";
+	position: absolute;
+	width: 200%;
+	height: 100%;
+	/*left: -100px;*/
+	/*background-color: #79bfd0;*/
+	background: rgba(214, 77, 77, .4);
+	border-radius: 100% 0 0 100%;
+	-webkit-transform-origin: 50% center;
+	transform-origin: 50% center;
+}
+
+/* Trash*/
+.pie-chart-3.big {
+	width: 200px;
+	height: 200px;
+	left: 850px;
+	top: -100px;
+	-webkit-transform-origin: center center;
+	transform-origin: center center;
+}
+.pie-chart-3.big .pie-mask-test{
+	left: 0px;
+	width: 50%;
+}
+
+
+/* The other half of a big (more than 50%) chart */
+.pie-chart-3.big:BEFORE {
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 50%;
+	border-radius: 0 9000px 9000px 0;
+	-webkit-transform-origin: right center;
+	transform-origin: right center;
+	background-color: #88a0c1;
+}
+
+/* The middle hole*/
+.pie-chart-3.big:AFTER {
+	content: "";
+	position: absolute;
+	background: #fff;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+	width: 94%;
+	height: 94%;
+	z-index: 99;
+	border-radius: 50%;
+}
+.pie-chart-3:AFTER {
+	content: "";
+	position: absolute;
+	background: #fff;
+	left: -100%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+	width: 188%;
+	height: 94%;
+	z-index: 99;
+	border-radius: 50%;
+}
+
+.pie-chart-3.big.final {
+	left: 500px;
+	top: 10px;
+}
+.pie-chart-3.big.final,
+.pie-chart-3.big.final .pie-mask-test {
+	background: none;
+	overflow: hidden;
+}
+.pie-chart-3.big.final .pie-mask-test .pie-mask-test-chart {
+	background-color: #88a0c1;
+}
+
+.pie-mask-test[data-percentage="25"] {
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+.pie-chart-3.big[data-percentage="25"] .pie-mask-test {
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
